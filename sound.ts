@@ -3,9 +3,9 @@
 namespace RSU.Sound {
 
     // export let dfplayerpreviousBusy: boolean = false;
-    let dfplayerBusy: boolean = false;
-    let dfplayerVolume: number = 0;
-    let dfplayerTrack: number = 0;
+    //let dfplayerBusy: boolean = false;
+    //let dfplayerVolume: number = 0;
+    //let dfplayerTrack: number = 0;
     //let Offset: number = 666;
 
     /**
@@ -20,7 +20,7 @@ namespace RSU.Sound {
     //% volume.min=0 volume.max=30
     export function setVolume(volume: number) {
         //dfplayerVolume = Math.constrain(volume, 0, 30);
-        sendMessage("SVOL," + dfplayerVolume);
+        sendMessage("SVOL," + volume);
     }
 
     /**
@@ -34,7 +34,7 @@ namespace RSU.Sound {
     //% block="Play track $track"
     //% track.min=1 track.max=99
     export function playTrack(track: number) {
-        dfplayerTrack = track;
+       // dfplayerTrack = track;
         sendMessage("SPLAY," + track + ",1");
     }
 
