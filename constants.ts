@@ -1,4 +1,4 @@
-namespace RainbowSparkleUnicorn {
+namespace RSU {
 
     export const RAINBOW_SPARKLE_UNICORN_SWITCH_PRESSED_ANY = 5009;
     export const RAINBOW_SPARKLE_UNICORN_SWITCH_PRESSED = 5010;
