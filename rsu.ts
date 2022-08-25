@@ -27,9 +27,9 @@ namespace RSU {
         basic.pause(1000);
 
         //reboot ESP32
-        serial.writeString("RESTART" + String.fromCharCode(Delimiters.CarriageReturn));
+        sendMessage("RESTART");
 
-        //was 500,but 1000 seems more stable
+        //was 500,but 1000 seems more stable - time the ESP32 takes to reboot
         basic.pause(1000);
 
         //add the serial data recieve handler
@@ -45,13 +45,13 @@ namespace RSU {
 
     }
 
-    export function _sendMessage(message: string): void {
+    export function sendMessage(message: string): void {
         serial.writeString(message + String.fromCharCode(Delimiters.CarriageReturn));
     }
 
-    const pinOffset = 1000;
+    const eventOffset = 1000;
 
-    function _readMessage(message: string): void {
+    function readMessage(message: string): void {
 
         let messageParts = message.split(":");
 
@@ -59,10 +59,10 @@ namespace RSU {
       
         switch (topic) {
             case "1":
-                control.raiseEvent(999, parseInt(messageParts[1]) + pinOffset);
+                control.raiseEvent(999, parseInt(messageParts[1]) + eventOffset);
                 break;
             case "2":
-                control.raiseEvent(666, parseInt(messageParts[1]) + pinOffset);
+                control.raiseEvent(666, parseInt(messageParts[1]) + eventOffset);
                 break;
         }
     }

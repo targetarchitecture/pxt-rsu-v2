@@ -9,7 +9,9 @@
     "files": [
         "main.ts",
         "README.md",
-        "rsu.ts"
+        "rsu.ts",
+        "constants.ts",
+        "sound.ts"
     ],
     "testFiles": [
         "test.ts"
